@@ -13,6 +13,7 @@ import ErrorBoundary from './ErrorBoundary';
 import PerformanceMonitor from './PerformanceMonitor';
 import DataVisualization, { EnhancedSkills } from './DataVisualization';
 import PWAInstallPrompt from './PWAInstallPrompt';
+import ScrollProgress from './ScrollProgress';
 
 export {
   Hero,
@@ -32,5 +33,6 @@ export {
   PerformanceMonitor,
   DataVisualization,
   EnhancedSkills,
-  PWAInstallPrompt
+  PWAInstallPrompt,
+  ScrollProgress
 }

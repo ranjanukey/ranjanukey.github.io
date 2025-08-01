@@ -79,7 +79,7 @@ const About = () => {
       {/* Introduction Section */}
       <div ref={headingRef}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={`${styles.sectionHeadText} holo-text section-enter`}>Overview.</h2>
       </div>
 
       <p ref={paragraphRef} className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]">

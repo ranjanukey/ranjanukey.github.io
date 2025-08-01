@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -76,40 +75,27 @@ const Contact = () => {
     
     setLoading(true);
 
-    emailjs
-      .send(
-        "service_your_service_id", // You'll need to add your EmailJS service ID
-        "template_your_template_id", // You'll need to add your EmailJS template ID
-        {
-          from_name: form.name,
-          to_name: "Ranjan Ukey",
-          from_email: form.email,
-          to_email: "work.ranjanukey@gmail.com",
-          message: form.message,
-        },
-        "your_public_key" // You'll need to add your EmailJS public key
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setSuccess(true);
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-          
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            setSuccess(false);
-          }, 5000);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+    // Simulate email sending with a delay
+    setTimeout(() => {
+      // Create a mailto link to open user's email client
+      const mailtoLink = `mailto:ranjanukey.gen@gmail.com?subject=Contact Form Message from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+      )}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      setLoading(false);
+      setSuccess(true);
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+      
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => setSuccess(false), 5000);
+    }, 1000);
   };
 
   return (
@@ -288,7 +274,7 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               className='mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg'
             >
-              <p className='text-green-400 font-medium'>✅ Thank you! Your message has been sent successfully. I'll get back to you soon!</p>
+              <p className='text-green-400 font-medium'>✅ Your email client is opening! Please send the pre-filled message to reach me.</p>
             </motion.div>
           )}
 

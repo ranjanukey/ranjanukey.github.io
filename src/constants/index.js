@@ -142,7 +142,7 @@ const educations = [
     school_name: "Rashtrasant Tukadoji Maharaj Nagpur University",
     icon: rtmnuLogo,
     iconBg: "#1A1A1A",
-    date: "June 2021 – August 2025",
+    date: "June 2021 – July 2025",
     points: [
       "Pursuing engineering with a strong focus on data analysis and visualization.",
       "Completed coursework in Python, R, SQL, and Excel VBA.",

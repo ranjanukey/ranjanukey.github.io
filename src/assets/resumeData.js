@@ -14,7 +14,7 @@ export const resumeData = {
     {
       degree: "Bachelor's in Engineering",
       institution: "Rashtrasant Tukadoji Maharaj Nagpur University",
-      year: "June 2021 – August 2025",
+      year: "June 2021 – July 2025",
       gpa: "N/A",
       details: "Strong focus on data analysis and visualization. Coursework in Python, R, SQL, and Excel VBA"
     },

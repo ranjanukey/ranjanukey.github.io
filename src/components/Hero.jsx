@@ -85,17 +85,20 @@ const AnimatedStat = ({ value, suffix, label, delay = 0 }) => {
 
   return (
     <motion.div 
-      className='text-center group cursor-pointer'
-      whileHover={{ scale: 1.05 }}
+      className='text-center group cursor-interactive glass-card p-4 rounded-xl futuristic-border'
+      whileHover={{ 
+        scale: 1.05,
+        boxShadow: "0 25px 50px rgba(145, 94, 255, 0.3)"
+      }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: delay / 1000, duration: 0.8 }}
     >
-      <div className='text-2xl lg:text-3xl font-bold text-[#915EFF] group-hover:text-[#7c3aed] transition-colors duration-300 relative'>
+      <div className='text-2xl lg:text-3xl font-bold holo-text group-hover:scale-110 transition-transform duration-300 relative'>
         {count}{suffix}
         <div className='absolute inset-0 rounded-lg bg-[#915EFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl'></div>
       </div>
-      <div className='text-xs lg:text-sm text-secondary uppercase tracking-wider group-hover:text-white transition-colors duration-300'>
+      <div className='text-xs lg:text-sm text-secondary uppercase tracking-wider group-hover:text-white transition-colors duration-300 terminal-text'>
         {label}
       </div>
     </motion.div>
@@ -178,6 +181,10 @@ const Hero = () => {
             e.preventDefault();
             window.open('https://linkedin.com/in/ranjanukey', '_blank');
             break;
+          case 'g':
+            e.preventDefault();
+            window.open('https://github.com/ranjanukey', '_blank');
+            break;
           default:
             break;
         }
@@ -204,8 +211,8 @@ const Hero = () => {
 
         <div className="mt-28 md:mt-5 lg:5">
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
-            <h1 className={`${styles.heroHeadText} text-white`}>
-              Hi, I'm <span className='text-[#915EFF]'>Ranjan Ukey</span>
+            <h1 className={`${styles.heroHeadText} text-white section-enter`}>
+              Hi, I'm <span className='holo-text cursor-interactive'>Ranjan Ukey</span>
             </h1>
             
             {/* View Resume Button - Next to Name */}
@@ -223,7 +230,7 @@ const Hero = () => {
                   boxShadow: "0 20px 40px rgba(145, 94, 255, 0.4)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className='relative bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#915EFF] text-white px-6 py-3 rounded-full font-bold text-base transition-all duration-500 flex items-center gap-2 border-2 border-[#915EFF]/30 shadow-lg cursor-pointer pointer-events-auto overflow-hidden group'
+                className='neo-button cursor-interactive relative bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#915EFF] text-white px-6 py-3 rounded-full font-bold text-base transition-all duration-500 flex items-center gap-2 border-2 border-[#915EFF]/30 shadow-lg cursor-pointer pointer-events-auto overflow-hidden group'
                 style={{ 
                   zIndex: 100,
                   backgroundSize: '200% 100%',
@@ -295,7 +302,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 2, duration: 0.6 }}
-          className='group relative w-12 h-12 bg-gradient-to-r from-[#915EFF] to-[#7c3aed] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden shimmer-effect'
+          className='group relative w-12 h-12 bg-gradient-to-r from-[#915EFF] to-[#7c3aed] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden shimmer-effect hover:shadow-[#915EFF]/50'
         >
           <motion.span 
             className='text-white text-xl relative z-10'
@@ -328,7 +335,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 2.2, duration: 0.6 }}
-          className='group relative w-12 h-12 bg-gradient-to-r from-[#00d4ff] to-[#0099cc] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden shimmer-effect'
+          className='group relative w-12 h-12 bg-gradient-to-r from-[#00d4ff] to-[#0099cc] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden shimmer-effect hover:shadow-[#00d4ff]/50'
         >
           <motion.span 
             className='text-white text-xl relative z-10'
@@ -363,7 +370,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 2.4, duration: 0.6 }}
-          className='group relative w-12 h-12 bg-gradient-to-r from-[#0077b5] to-[#005885] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden shimmer-effect'
+          className='group relative w-12 h-12 bg-gradient-to-r from-[#0077b5] to-[#005885] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden shimmer-effect hover:shadow-[#0077b5]/50'
         >
           <motion.span 
             className='text-white text-xl relative z-10'
@@ -393,15 +400,31 @@ const Hero = () => {
         transition={{ delay: 3, duration: 0.6 }}
       >
         <motion.div 
-          className='bg-black/80 backdrop-blur-sm text-white p-3 rounded-lg text-xs border border-white/10'
-          whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.3)" }}
+          className='bg-black/90 backdrop-blur-sm text-white p-4 rounded-xl text-xs border border-[#915EFF]/30 shadow-2xl'
+          whileHover={{ 
+            scale: 1.05, 
+            boxShadow: "0 20px 40px rgba(145, 94, 255, 0.2)" 
+          }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <div className='text-[#915EFF] font-semibold mb-2'>Keyboard Shortcuts:</div>
-          <div className='space-y-1'>
-            <div><kbd className='bg-white/20 px-1 rounded'>Ctrl+R</kbd> Resume</div>
-            <div><kbd className='bg-white/20 px-1 rounded'>Ctrl+E</kbd> Email</div>
-            <div><kbd className='bg-white/20 px-1 rounded'>Ctrl+L</kbd> LinkedIn</div>
+          <div className='text-[#915EFF] font-semibold mb-3 text-sm'>⌨️ Keyboard Shortcuts:</div>
+          <div className='space-y-2'>
+            <div className='flex items-center gap-3'>
+              <kbd className='bg-[#915EFF]/20 border border-[#915EFF]/40 px-2 py-1 rounded text-xs font-mono'>Ctrl+R</kbd> 
+              <span className='text-gray-300'>Resume</span>
+            </div>
+            <div className='flex items-center gap-3'>
+              <kbd className='bg-[#915EFF]/20 border border-[#915EFF]/40 px-2 py-1 rounded text-xs font-mono'>Ctrl+E</kbd> 
+              <span className='text-gray-300'>Email</span>
+            </div>
+            <div className='flex items-center gap-3'>
+              <kbd className='bg-[#915EFF]/20 border border-[#915EFF]/40 px-2 py-1 rounded text-xs font-mono'>Ctrl+L</kbd> 
+              <span className='text-gray-300'>LinkedIn</span>
+            </div>
+            <div className='flex items-center gap-3'>
+              <kbd className='bg-[#915EFF]/20 border border-[#915EFF]/40 px-2 py-1 rounded text-xs font-mono'>Ctrl+G</kbd> 
+              <span className='text-gray-300'>GitHub</span>
+            </div>
           </div>
         </motion.div>
       </motion.div>
