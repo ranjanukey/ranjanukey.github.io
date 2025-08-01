@@ -486,3 +486,204 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Advanced Professional Animations */
+@keyframes matrix-rain {
+  0% { transform: translateY(-100vh) scaleY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh) scaleY(1); opacity: 0; }
+}
+
+@keyframes hologram {
+  0%, 100% { 
+    text-shadow: 0 0 5px rgba(145, 94, 255, 0.8), 
+                 0 0 10px rgba(145, 94, 255, 0.6), 
+                 0 0 15px rgba(145, 94, 255, 0.4); 
+  }
+  50% { 
+    text-shadow: 0 0 2px rgba(145, 94, 255, 0.9), 
+                 0 0 5px rgba(145, 94, 255, 0.7), 
+                 0 0 8px rgba(145, 94, 255, 0.5); 
+  }
+}
+
+@keyframes neon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(145, 94, 255, 0.8)) 
+            drop-shadow(0 0 10px rgba(145, 94, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(145, 94, 255, 1)) 
+            drop-shadow(0 0 20px rgba(145, 94, 255, 0.6));
+  }
+}
+
+@keyframes digital-glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 10px rgba(145, 94, 255, 0.5),
+      inset 0 0 10px rgba(145, 94, 255, 0.2); 
+  }
+  50% { 
+    box-shadow: 
+      0 0 20px rgba(145, 94, 255, 0.8),
+      0 0 30px rgba(145, 94, 255, 0.4),
+      inset 0 0 20px rgba(145, 94, 255, 0.3); 
+  }
+}
+
+@keyframes data-stream {
+  0% { 
+    transform: translateX(-100%) skewX(-15deg); 
+    opacity: 0; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateX(200%) skewX(-15deg); 
+    opacity: 0; 
+  }
+}
+
+/* Advanced Utility Classes */
+.matrix-effect {
+  animation: matrix-rain 3s linear infinite;
+}
+
+.hologram-text {
+  animation: hologram 2s ease-in-out infinite;
+  color: rgba(145, 94, 255, 0.9);
+}
+
+.neon-glow {
+  animation: neon-glow 2s ease-in-out infinite;
+}
+
+.digital-glitch {
+  animation: digital-glitch 0.3s ease-in-out infinite;
+}
+
+.cyber-pulse {
+  animation: cyber-pulse 2s ease-in-out infinite;
+}
+
+.scan-line-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(145, 94, 255, 0.8), transparent);
+  animation: scan-line 2s linear infinite;
+}
+
+.data-stream-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-stream-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(145, 94, 255, 0.1), 
+    rgba(145, 94, 255, 0.3), 
+    rgba(145, 94, 255, 0.1), 
+    transparent
+  );
+  animation: data-stream 3s infinite;
+}
+
+/* Interactive Hover Effects */
+.interactive-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(145, 94, 255, 0.1) 0%, 
+    transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.interactive-hover:hover::before {
+  opacity: 1;
+}
+
+/* Futuristic UI Elements */
+.futuristic-border {
+  position: relative;
+  border: 1px solid rgba(145, 94, 255, 0.3);
+}
+
+.futuristic-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  background: linear-gradient(45deg, 
+    rgba(145, 94, 255, 0.5), 
+    transparent, 
+    rgba(145, 94, 255, 0.5)
+  );
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Performance Optimized Animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .matrix-effect,
+  .hologram-text,
+  .neon-glow,
+  .digital-glitch,
+  .cyber-pulse,
+  .scan-line-effect::after,
+  .data-stream-effect::before {
+    animation: none !important;
+  }
+  
+  .interactive-hover {
+    transition: none !important;
+  }
+}
