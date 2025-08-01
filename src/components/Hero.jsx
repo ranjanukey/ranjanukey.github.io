@@ -4,6 +4,35 @@ import { useState, useEffect } from "react";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import ResumeModal from "./ResumeModal";
+import useCountUp from "../hooks/useCountUp";
+
+const AnimatedStat = ({ value, suffix, label, delay = 0 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const count = useCountUp(isVisible ? value : 0, 2000, 0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  return (
+    <motion.div 
+      className='text-center group cursor-pointer'
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: delay / 1000, duration: 0.8 }}
+    >
+      <div className='text-2xl lg:text-3xl font-bold text-[#915EFF] group-hover:text-[#7c3aed] transition-colors duration-300 relative'>
+        {count}{suffix}
+        <div className='absolute inset-0 rounded-lg bg-[#915EFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl'></div>
+      </div>
+      <div className='text-xs lg:text-sm text-secondary uppercase tracking-wider group-hover:text-white transition-colors duration-300'>
+        {label}
+      </div>
+    </motion.div>
+  );
+};
 
 const TypewriterText = () => {
   const texts = [
@@ -110,18 +139,9 @@ const Hero = () => {
             transition={{ delay: 1, duration: 0.8 }}
             className='mt-8 grid grid-cols-3 gap-6 lg:gap-8'
           >
-            <div className='text-center'>
-              <div className='text-2xl lg:text-3xl font-bold text-[#915EFF]'>5+</div>
-              <div className='text-xs lg:text-sm text-secondary uppercase tracking-wider'>Technologies</div>
-            </div>
-            <div className='text-center'>
-              <div className='text-2xl lg:text-3xl font-bold text-[#915EFF]'>500+</div>
-              <div className='text-xs lg:text-sm text-secondary uppercase tracking-wider'>Hours Coded</div>
-            </div>
-            <div className='text-center'>
-              <div className='text-2xl lg:text-3xl font-bold text-[#915EFF]'>8+</div>
-              <div className='text-xs lg:text-sm text-secondary uppercase tracking-wider'>Dashboards Created</div>
-            </div>
+            <AnimatedStat value={5} suffix="+" label="Technologies" delay={1200} />
+            <AnimatedStat value={500} suffix="+" label="Hours Coded" delay={1400} />
+            <AnimatedStat value={8} suffix="+" label="Dashboards Created" delay={1600} />
           </motion.div>
         </div>
       </div>
