@@ -1,9 +1,9 @@
 {
-  "name": "3dfolio",
+  "name": "ranjan-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ranjanukey.github.io",
+  "homepage": "https://ranjanukey.github.io/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
