@@ -4,7 +4,7 @@ import viteCompression from 'vite-plugin-compression'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
   plugins: [
     react(),
     // Gzip compression for better performance
@@ -23,18 +23,6 @@ export default defineConfig({
   build: {
     // Enable source maps for debugging
     sourcemap: false,
-    
-    // Optimize chunks
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          // Separate vendor chunks for better caching
-          'three': ['three', '@react-three/fiber', '@react-three/drei'],
-          'animations': ['framer-motion', 'gsap'],
-          'ui': ['react-tilt', 'react-vertical-timeline-component'],
-        },
-      },
-    },
     
     // Increase chunk size warning limit
     chunkSizeWarningLimit: 1000,
