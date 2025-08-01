@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { styles } from "../styles";
 import { services } from "../constants";
-import { educations } from "../constants";
+// import { educations } from "../constants"; // Commented out - not needed for now
 import { SectionWrapper } from "../hoc";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +54,7 @@ const ServiceCard = ({ index, title, icon }) => {
 const About = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
-  const educationHeadingRef = useRef(null);
+  // const educationHeadingRef = useRef(null); // Commented out - not needed for now
 
   // Heading Animation
   useGsap(headingRef, {
@@ -68,11 +68,11 @@ const About = () => {
     to: { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
   }, 0.3);
 
-  // Education Heading Animation
-  useGsap(educationHeadingRef, {
-    from: { opacity: 0, y: 50 },
-    to: { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
-  });
+  // Education Heading Animation - COMMENTED OUT
+  // useGsap(educationHeadingRef, {
+  //   from: { opacity: 0, y: 50 },
+  //   to: { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+  // });
 
   return (
     <>
@@ -95,8 +95,8 @@ const About = () => {
         ))}
       </div>
 
-      {/* Education Section */}
-      <div className="mt-16">
+      {/* Education Section - COMMENTED OUT */}
+      {/* <div className="mt-16">
         <div ref={educationHeadingRef}>
           <h2 className={styles.sectionHeadText}>Education.</h2>
         </div>
@@ -129,7 +129,7 @@ const About = () => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
