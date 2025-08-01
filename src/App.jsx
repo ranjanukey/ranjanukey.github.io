@@ -1,10 +1,10 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Navbar, Hero, About, Education, Experience, Tech, Works, Contact, StarsCanvas } from "./components";
 import ScrollProgress from "./components/ScrollProgress";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className='relative z-0 bg-primary'>
         {/* Futuristic Enhancements */}
         <ScrollProgress />
@@ -26,7 +26,7 @@ const App = () => {
           <StarsCanvas />
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
